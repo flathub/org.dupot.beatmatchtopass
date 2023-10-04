@@ -28,8 +28,8 @@ modules:
           - /app/bin/godot-runner --audio-driver Dummy --main-pack /app/bin/beatmatchtopass.pck "$@"
 
     build-commands:
-      - install -Dm755 beatmatchtopass.sh /app/bin/beatmatchtopass
-      - install -Dm555 export/linux/beatmatchtopass $FLATPAK_DEST/bin/beatmatchtopass.pck
+      - install -Dm755 beatmatchtopass.sh $FLATPAK_DEST/bin/beatmatchtopass
+      - install -Dm555 export/linux/beatmatchtopass.pck $FLATPAK_DEST/bin/beatmatchtopass.pck
       - install -Dm644 export/linux/flatpack/512x512.png $FLATPAK_DEST/share/icons/hicolor/512x512/apps/org.dupot.beatmatchtopass.png
       - install -Dm644 export/linux/flatpack/org.dupot.beatmatchtopass.desktop $FLATPAK_DEST/share/applications/org.dupot.beatmatchtopass.desktop
       - install -Dm644 export/linux/flatpack/org.dupot.beatmatchtopass.appdata.xml $FLATPAK_DEST/share/metainfo/org.dupot.beatmatchtopass.appdata.xml
