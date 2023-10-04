@@ -19,7 +19,7 @@ modules:
         commit: c89746081e4f0293c7f8e1dc9132184defb89662
 
     build-commands:
-      - install -Dm755 beatmatchtopass.x86_64 $FLATPAK_DEST/bin/beatmatchtopass
+      - install -Dm755 export/linux/beatmatchtopass.x86_64 $FLATPAK_DEST/bin/beatmatchtopass
       - install -Dm555 export/linux/beatmatchtopass.pck $FLATPAK_DEST/bin/beatmatchtopass.pck
       - install -Dm644 export/linux/flatpack/512x512.png $FLATPAK_DEST/share/icons/hicolor/512x512/apps/org.dupot.beatmatchtopass.png
       - install -Dm644 export/linux/flatpack/org.dupot.beatmatchtopass.desktop $FLATPAK_DEST/share/applications/org.dupot.beatmatchtopass.desktop
