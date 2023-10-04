@@ -21,4 +21,4 @@ modules:
     sources:
       - type: git
         url: https://github.com/imikado/dupotBeatAndMatchToPass/
-        commit: 0ad0c8417f2c9a24fd57cf583b654488f606e798
+        commit: 4e89ab23c7b84eec3c75bf54ae3f23219a4ff58c
