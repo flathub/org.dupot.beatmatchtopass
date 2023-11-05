@@ -16,7 +16,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/imikado/dupotBeatAndMatchToPass/
-        commit: 887a3d130993153034b4dd016fd3123913f32982
+        commit: 0c0c358167ad819fde0b6433802f8bdbdab6a34a
 
     build-commands:
       - install -Dm755 export/linux/beatmatchtopass.x86_64 $FLATPAK_DEST/bin/beatmatchtopass
