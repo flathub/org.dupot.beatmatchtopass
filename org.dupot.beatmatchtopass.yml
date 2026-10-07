@@ -1,38 +1,41 @@
 app-id: org.dupot.beatmatchtopass
+base: org.godotengine.godot.BaseApp
+base-version: '4.7'
 runtime: org.freedesktop.Platform
-runtime-version: "25.08"
+runtime-version: '26.08'
 sdk: org.freedesktop.Sdk
 command: beatmatchtopass
 finish-args:
   - --share=ipc
   - --socket=pulseaudio
-  - --socket=x11
+  - --socket=wayland
+  - --socket=fallback-x11
   - --device=dri
-  - --persist=.local/share/godot/app_userdata/BeatMatchtoPass
 
 modules:
-  - name: BeatMatchtoPass
+  - name: beatmatchtopass
     buildsystem: simple
 
     build-commands:
-      - install -Dm755 gameArchive/beatmatchtopass.x86_64 /app/bin/beatmatchtopass
-      - install -Dm555 gameArchive/beatmatchtopass.pck /app/bin/beatmatchtopass.pck
-      - install -Dm644 git_repo/export/linux/flatpak/16x16.png $FLATPAK_DEST/share/icons/hicolor/16x16/apps/org.dupot.beatmatchtopass.png
-      - install -Dm644 git_repo/export/linux/flatpak/24x24.png $FLATPAK_DEST/share/icons/hicolor/24x24/apps/org.dupot.beatmatchtopass.png
-      - install -Dm644 git_repo/export/linux/flatpak/32x32.png $FLATPAK_DEST/share/icons/hicolor/32x32/apps/org.dupot.beatmatchtopass.png
-      - install -Dm644 git_repo/export/linux/flatpak/48x48.png $FLATPAK_DEST/share/icons/hicolor/48x48/apps/org.dupot.beatmatchtopass.png
-      - install -Dm644 git_repo/export/linux/flatpak/64x64.png $FLATPAK_DEST/share/icons/hicolor/64x64/apps/org.dupot.beatmatchtopass.png
-      - install -Dm644 git_repo/export/linux/flatpak/512x512.png $FLATPAK_DEST/share/icons/hicolor/512x512/apps/org.dupot.beatmatchtopass.png
-      - install -Dm644 git_repo/export/linux/flatpak/${FLATPAK_ID}.desktop /app/share/applications/${FLATPAK_ID}.desktop
-      - install -Dm644 git_repo/export/linux/flatpak/${FLATPAK_ID}.appdata.xml /app/share/appdata/${FLATPAK_ID}.appdata.xml
+      - install -Dm755 beatmatchtopass.sh /app/bin/beatmatchtopass
+      - install -Dm644 gameArchive/beatmatchtopass.pck /app/bin/beatmatchtopass.pck
+      - install -Dm644 gameArchive/icons/16x16.png $FLATPAK_DEST/share/icons/hicolor/16x16/apps/org.dupot.beatmatchtopass.png
+      - install -Dm644 gameArchive/icons/24x24.png $FLATPAK_DEST/share/icons/hicolor/24x24/apps/org.dupot.beatmatchtopass.png
+      - install -Dm644 gameArchive/icons/32x32.png $FLATPAK_DEST/share/icons/hicolor/32x32/apps/org.dupot.beatmatchtopass.png
+      - install -Dm644 gameArchive/icons/48x48.png $FLATPAK_DEST/share/icons/hicolor/48x48/apps/org.dupot.beatmatchtopass.png
+      - install -Dm644 gameArchive/icons/64x64.png $FLATPAK_DEST/share/icons/hicolor/64x64/apps/org.dupot.beatmatchtopass.png
+      - install -Dm644 gameArchive/icons/512x512.png $FLATPAK_DEST/share/icons/hicolor/512x512/apps/org.dupot.beatmatchtopass.png
+      - install -Dm644 gameArchive/${FLATPAK_ID}.desktop /app/share/applications/${FLATPAK_ID}.desktop
+      - install -Dm644 gameArchive/${FLATPAK_ID}.appdata.xml /app/share/metainfo/${FLATPAK_ID}.metainfo.xml
 
     sources:
       - type: archive
         dest: gameArchive
-        url: https://github.com/imikado/dupotBeatAndMatchToPass/releases/download/1.6.2/bundle.tar.gz
-        sha256: 0dc6a87152ac4190fe1a21bb5311c1ac41e80be5d44f3240751ae3c90769b015
-      - type: git
-        dest: git_repo
-        url: https://github.com/imikado/dupotBeatAndMatchToPass/
-        tag: 1.6.4
-        commit: 043152a2937c3f33de73a40eccb06efa77b4d0a5
+        url: https://github.com/imikado/dupotBeatAndMatchToPass/releases/download/1.7.0/bundle.tar.gz
+        sha256: f64fed46bc3e533152a0a1e8ce9ce5830af10cd95f7a98ff8efb71a2003e8297
+
+      - type: script
+        dest-filename: beatmatchtopass.sh
+        commands:
+          - cd /app/bin/
+          - /app/bin/godot-runner --main-pack /app/bin/beatmatchtopass.pck "$@"
