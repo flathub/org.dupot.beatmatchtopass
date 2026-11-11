@@ -13,7 +13,7 @@ finish-args:
   - --device=dri
   # Gamepads (USB and Bluetooth) via /dev/input
   - --device=input
-  - --require-version=1.15.6
+  - --require-version=1.16.0
 
 modules:
   - name: beatmatchtopass
