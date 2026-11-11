@@ -31,8 +31,8 @@ modules:
     sources:
       - type: archive
         dest: gameArchive
-        url: https://github.com/imikado/dupotBeatAndMatchToPass/releases/download/1.11.1/bundle.tar.gz
-        sha256: e422c83ebc2aef05cd4c956a7231d35f2fed0802b46e3222ebbcd5502a4c995a
+        url: https://github.com/imikado/dupotBeatAndMatchToPass/releases/download/1.12.0/bundle.tar.gz
+        sha256: 3da99c3fb02b86dd9fb29e926a4c1d86743cac10a31cf1c3e8aa7c6acd6cd5cd
 
       - type: script
         dest-filename: beatmatchtopass.sh
