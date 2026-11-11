@@ -11,9 +11,7 @@ finish-args:
   - --socket=wayland
   - --socket=fallback-x11
   - --device=dri
-  # Gamepads (USB and Bluetooth) via /dev/input
-  - --device=input
-  - --require-version=1.16.0
+  - --device-if=all:!has-input-device
 
 modules:
   - name: beatmatchtopass
